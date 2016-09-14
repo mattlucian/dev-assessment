@@ -1,4 +1,4 @@
-package com.is.easyasin.worker;
+package com.is.dev.assessment;
 
 public class Main {
 
