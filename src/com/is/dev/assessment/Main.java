@@ -102,11 +102,14 @@ public class Main {
 			JAXBContext jc = JAXBContext.newInstance(Product.class);
 			Marshaller ms = jc.createMarshaller();
 			ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			ms.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
 			
 			FileWriter data = new FileWriter(fileOutput);
 			BufferedWriter bw = new BufferedWriter(data);
 			PrintWriter out = new PrintWriter(bw);
 			
+			// hardcode the xml header to the top of fileOutput
+			out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
 			for( Product p : pList)
 			{
 				// Output XML File with the following rules :
@@ -160,8 +163,8 @@ public class Main {
 					tCondition = p.getCondition();
 					tQuantity = p.getQuantity().toString();	
 					// copy each product into json Formatted String
-					jsonProduct = "{\"title\": " + tTitle + "\"upc\": " + tUpc + "\"sku\": " + tSku + "\"price\": " + tPrice 
-							+ "\"sellPrice\": " + tSellPrice + "\"condition\": " + tCondition + "\"quantity\": " + tQuantity + "\"},";
+					jsonProduct = "{\"title\": " + tTitle + " \"upc\": " + tUpc + " \"sku\": " + tSku + " \"price\": " + tPrice 
+							+ " \"sellPrice\": " + tSellPrice + " \"condition\": " + tCondition + " \"quantity\": " + tQuantity + " \"},";
 					// write to file
 					out.println(jsonProduct);
 				}
@@ -176,8 +179,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
     	Main m = new Main();
     	String csvFileToRead =  "dev-assessment/input.csv";
-    	String jsonOutputFile = "dev-assessment/outputJson.json";
-    	String xmlOutputFile = "dev-assessment/outputXml.xml";
+    	String jsonOutputFile = "dev-assessment/output.json";
+    	String xmlOutputFile = "dev-assessment/output.xml";
 		List<Product> productList = new ArrayList<Product>();
 		
 		m.csvToJava(csvFileToRead, productList);
