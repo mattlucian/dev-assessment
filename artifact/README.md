@@ -51,6 +51,15 @@ On a Linux/UNIX system - this can also be done by running the `run.sh` file
 2. Provide the number of hours it took for you to complete the assessment
 
 
+# Scoring
+- (required) Entire project zipped (with source code) 
+- (15%) `mvn package` and `java -jar target/dev-assessment-1.0.jar` work without errors
+- (15%) products.json and products.xml are in the proper format
+- (20%) Method used to parse the CSV
+- (20%) Method used to transform the data into JSON / XML
+- (15%) Error handling
+- (15%) General coding style
+
 ## Hints
 - A CSV record may contain a comma in it that's not a delimiter 
 - XML files always require a root node
