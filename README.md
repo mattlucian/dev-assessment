@@ -1,5 +1,6 @@
 # Developer Assessment - Integrations
-This assessment gauges development skills in data transformation and integrations.
+The purpose of this assessment is to gauge development experience. The ideal candidate will use their experience to
+demonstrate well structured and efficient code with best practices considered.
 
 
 # Rules
